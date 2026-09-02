@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import AddToCartButton from "@/components/AddToCartButton";
 import { formatearPrecio } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
 
@@ -81,6 +82,18 @@ export default async function ProductoDetallePage({
               ? `${producto.stock} unidades disponibles`
               : "Sin stock disponible"}
           </p>
+
+          <div className="mt-6">
+            <AddToCartButton
+              producto={{
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                imagenUrl: producto.imagenUrl,
+              }}
+              className="rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
+            />
+          </div>
 
           <p className="mt-6 leading-relaxed text-zinc-700">
             {producto.descripcion}

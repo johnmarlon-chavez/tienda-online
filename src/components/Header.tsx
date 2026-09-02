@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CartIndicator from "@/components/CartIndicator";
 
 export default function Header() {
   return (
@@ -14,6 +15,7 @@ export default function Header() {
           <Link href="/productos" className="transition-colors hover:text-zinc-900">
             Productos
           </Link>
+          <CartIndicator />
         </nav>
       </div>
     </header>
