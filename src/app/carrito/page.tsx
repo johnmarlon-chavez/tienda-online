@@ -106,12 +106,18 @@ export default function CarritoPage() {
         </span>
       </div>
 
-      <div className="mt-6 flex justify-between">
+      <div className="mt-6 flex items-center justify-between">
         <Link
           href="/productos"
           className="text-sm font-medium text-zinc-600 hover:text-zinc-900"
         >
           ← Seguir comprando
+        </Link>
+        <Link
+          href="/checkout"
+          className="rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
+        >
+          Proceder al pago
         </Link>
       </div>
     </main>

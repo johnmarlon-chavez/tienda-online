@@ -29,6 +29,7 @@ model Producto {
   marca        String?
   destacado    Boolean  @default(false)
   creadoEn     DateTime @default(now())
+  detalles     DetalleOrden[]
 
   @@index([categoria])
 }
@@ -41,6 +42,39 @@ model Usuario {
   rol          RolUsuario @default(cliente)
   creadoEn     DateTime @default(now())
   sesiones     Sesion[]
+  pedidos      Pedido[]
+}
+
+enum EstadoPedido {
+  pendiente
+  confirmado
+  enviado
+  entregado
+}
+
+model Pedido {
+  id             Int          @id @default(autoincrement())
+  usuarioId      Int
+  usuario        Usuario      @relation(fields: [usuarioId], references: [id])
+  estado         EstadoPedido @default(pendiente)
+  total          Float
+  direccionEnvio String
+  creadoEn       DateTime     @default(now())
+  items          DetalleOrden[]
+
+  @@index([usuarioId])
+}
+
+// Precio al momento de la compra: se copia de Producto.precio al crear
+// el pedido para que cambios de precio futuros no alteren pedidos pasados.
+model DetalleOrden {
+  id             Int      @id @default(autoincrement())
+  pedidoId       Int
+  pedido         Pedido   @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  productoId     Int
+  producto       Producto @relation(fields: [productoId], references: [id])
+  cantidad       Int
+  precioUnitario Float
 }
 
 // Sesión de login activa. El token vive en una cookie httpOnly en el

@@ -31,6 +31,7 @@ type CartContextValue = {
   removeItem: (id: number) => void;
   incrementItem: (id: number) => void;
   decrementItem: (id: number) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -97,6 +98,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   }
 
+  function clearCart() {
+    setItems([]);
+  }
+
   const totalItems = items.reduce((acc, item) => acc + item.cantidad, 0);
   const totalPrecio = items.reduce(
     (acc, item) => acc + item.precio * item.cantidad,
@@ -113,6 +118,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeItem,
         incrementItem,
         decrementItem,
+        clearCart,
       }}
     >
       {children}
