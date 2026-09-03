@@ -12,6 +12,11 @@ datasource db {
   provider = "sqlite"
 }
 
+enum RolUsuario {
+  cliente
+  admin
+}
+
 model Producto {
   id           Int      @id @default(autoincrement())
   nombre       String
@@ -26,4 +31,25 @@ model Producto {
   creadoEn     DateTime @default(now())
 
   @@index([categoria])
+}
+
+model Usuario {
+  id           Int      @id @default(autoincrement())
+  nombre       String
+  email        String   @unique
+  passwordHash String
+  rol          RolUsuario @default(cliente)
+  creadoEn     DateTime @default(now())
+  sesiones     Sesion[]
+}
+
+// Sesión de login activa. El token vive en una cookie httpOnly en el
+// navegador; cerrar sesión borra esta fila (invalidación real del lado
+// del servidor, a diferencia de un JWT que seguiría siendo válido).
+model Sesion {
+  token     String   @id
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  creadoEn  DateTime @default(now())
+  expiraEn  DateTime
 }
