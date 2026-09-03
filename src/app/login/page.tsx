@@ -27,11 +27,13 @@ export default function LoginPage() {
             Correo electrónico
           </label>
           <input
+            key={estado.email ?? ""}
             id="email"
             name="email"
             type="email"
             autoComplete="email"
             required
+            defaultValue={estado.email ?? ""}
             className="mt-1 w-full rounded-md border border-zinc-300 px-3 py-2 text-sm text-zinc-900 focus:border-zinc-900 focus:outline-none"
           />
         </div>
