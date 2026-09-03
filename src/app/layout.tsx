@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ANDES — Ropa y audífonos",
-  description: "Catálogo de ropa y audífonos. Proyecto de portfolio inspirado en Falabella.",
+  title: "ANDES — Ropa, calzado, audífonos, accesorios y hogar",
+  description:
+    "Catálogo de ropa, calzado, audífonos, accesorios y hogar. Proyecto de portfolio inspirado en Falabella.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
