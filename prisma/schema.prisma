@@ -35,14 +35,27 @@ model Producto {
 }
 
 model Usuario {
-  id           Int      @id @default(autoincrement())
-  nombre       String
-  email        String   @unique
-  passwordHash String
-  rol          RolUsuario @default(cliente)
-  creadoEn     DateTime @default(now())
-  sesiones     Sesion[]
-  pedidos      Pedido[]
+  id              Int      @id @default(autoincrement())
+  nombre          String
+  email           String   @unique
+  passwordHash    String
+  rol             RolUsuario @default(cliente)
+  emailVerificado Boolean  @default(false)
+  creadoEn        DateTime @default(now())
+  sesiones        Sesion[]
+  pedidos         Pedido[]
+  tokensVerificacion TokenVerificacion[]
+}
+
+// Token de un solo uso para confirmar el correo tras el registro (o un
+// reenvío). Mismo patrón que Sesion: tabla propia en vez de campos sueltos
+// en Usuario, para poder invalidar/reemplazar tokens sin tocar el usuario.
+model TokenVerificacion {
+  token     String   @id
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  creadoEn  DateTime @default(now())
+  expiraEn  DateTime
 }
 
 enum EstadoPedido {

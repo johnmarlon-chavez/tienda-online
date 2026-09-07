@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import ReenviarVerificacionBoton from "@/components/ReenviarVerificacionBoton";
 import { formatearPrecio } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
 import { obtenerUsuarioActual } from "@/lib/session";
@@ -40,6 +41,16 @@ export default async function PerfilPage() {
           <p className="text-sm text-zinc-500">{usuario.email}</p>
         </div>
       </div>
+
+      {!usuario.emailVerificado && (
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
+          <p className="text-sm text-amber-800">
+            Tu correo no está verificado. Verifícalo para poder completar
+            compras.
+          </p>
+          <ReenviarVerificacionBoton />
+        </div>
+      )}
 
       <h2 className="mt-10 mb-4 text-lg font-semibold text-zinc-900">
         Historial de pedidos

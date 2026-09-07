@@ -1,9 +1,11 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { enviarCorreoVerificacion } from "@/lib/email";
 import { hashPassword } from "@/lib/password";
 import { prisma } from "@/lib/prisma";
 import { crearSesion } from "@/lib/session";
+import { crearTokenVerificacion } from "@/lib/verificacion";
 
 export type EstadoFormulario = { error?: string };
 
@@ -29,16 +31,22 @@ export async function registrarUsuario(
     return { error: "Ya existe una cuenta con ese correo." };
   }
 
-  let usuarioId: number;
+  let usuario;
   try {
-    const usuario = await prisma.usuario.create({
+    usuario = await prisma.usuario.create({
       data: { nombre, email, passwordHash: hashPassword(password) },
     });
-    usuarioId = usuario.id;
   } catch {
     return { error: "Ya existe una cuenta con ese correo." };
   }
 
-  await crearSesion(usuarioId);
+  // Si el envío falla (p.ej. límites de Resend en modo de pruebas), la
+  // cuenta igual queda creada: el usuario puede reenviar el correo después.
+  const { token } = await crearTokenVerificacion(usuario.id);
+  if (token) {
+    await enviarCorreoVerificacion(usuario.email, usuario.nombre, token).catch(() => {});
+  }
+
+  await crearSesion(usuario.id);
   redirect("/perfil");
 }
