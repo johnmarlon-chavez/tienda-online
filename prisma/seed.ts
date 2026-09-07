@@ -7,9 +7,6 @@ const adapter = new PrismaNeon({
 });
 const prisma = new PrismaClient({ adapter });
 
-const img = (texto: string) =>
-  `https://placehold.co/600x600.png?text=${encodeURIComponent(texto)}`;
-
 const productos = [
   // Ropa - Hombre
   {
@@ -19,7 +16,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 40,
-    imagenUrl: img("Polo Basico Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/38928670/pexels-photo-38928670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Urbano",
     destacado: true,
   },
@@ -30,7 +27,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 25,
-    imagenUrl: img("Camisa a Cuadros"),
+    imagenUrl: "https://images.pexels.com/photos/30080231/pexels-photo-30080231.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Northline",
   },
   {
@@ -40,7 +37,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 30,
-    imagenUrl: img("Jean Slim Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/8788774/pexels-photo-8788774.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Levi's",
     destacado: true,
   },
@@ -51,7 +48,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 18,
-    imagenUrl: img("Casaca Cortavientos"),
+    imagenUrl: "https://images.pexels.com/photos/13085468/pexels-photo-13085468.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Northline",
   },
   {
@@ -61,7 +58,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 35,
-    imagenUrl: img("Short Deportivo"),
+    imagenUrl: "https://images.pexels.com/photos/28744566/pexels-photo-28744566.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Nike",
   },
   {
@@ -71,7 +68,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Hombre",
     stock: 22,
-    imagenUrl: img("Sweater Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/6748638/pexels-photo-6748638.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Urbano",
   },
 
@@ -83,7 +80,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 28,
-    imagenUrl: img("Blusa Mujer"),
+    imagenUrl: "https://images.pexels.com/photos/14247257/pexels-photo-14247257.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Zara",
     destacado: true,
   },
@@ -94,7 +91,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 20,
-    imagenUrl: img("Vestido Casual"),
+    imagenUrl: "https://images.pexels.com/photos/4589213/pexels-photo-4589213.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Zara",
     destacado: true,
   },
@@ -105,7 +102,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 26,
-    imagenUrl: img("Jean Tiro Alto"),
+    imagenUrl: "https://images.pexels.com/photos/35272820/pexels-photo-35272820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Levi's",
   },
   {
@@ -115,7 +112,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 15,
-    imagenUrl: img("Chompa Oversize"),
+    imagenUrl: "https://images.pexels.com/photos/18885255/pexels-photo-18885255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "H&M",
   },
   {
@@ -125,7 +122,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 32,
-    imagenUrl: img("Leggings Deportivo"),
+    imagenUrl: "https://images.pexels.com/photos/7894597/pexels-photo-7894597.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Adidas",
   },
   {
@@ -135,7 +132,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Mujer",
     stock: 17,
-    imagenUrl: img("Chaqueta Denim"),
+    imagenUrl: "https://images.pexels.com/photos/18349327/pexels-photo-18349327.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "H&M",
   },
 
@@ -147,7 +144,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Niños",
     stock: 40,
-    imagenUrl: img("Polo Nino"),
+    imagenUrl: "https://images.pexels.com/photos/19418966/pexels-photo-19418966.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Urbano Kids",
   },
   {
@@ -157,7 +154,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Niños",
     stock: 24,
-    imagenUrl: img("Conjunto Nina"),
+    imagenUrl: "https://images.pexels.com/photos/14571371/pexels-photo-14571371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Adidas Kids",
   },
   {
@@ -167,7 +164,7 @@ const productos = [
     categoria: "Ropa",
     subcategoria: "Niños",
     stock: 16,
-    imagenUrl: img("Casaca Nino"),
+    imagenUrl: "https://images.pexels.com/photos/13729856/pexels-photo-13729856.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Northline Kids",
   },
 
@@ -179,7 +176,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Inalámbricos",
     stock: 45,
-    imagenUrl: img("Audifonos Bluetooth"),
+    imagenUrl: "https://images.pexels.com/photos/3394648/pexels-photo-3394648.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "JBL",
     destacado: true,
   },
@@ -190,7 +187,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Con cable",
     stock: 60,
-    imagenUrl: img("Audifonos In Ear"),
+    imagenUrl: "https://images.pexels.com/photos/210927/pexels-photo-210927.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Sony",
   },
   {
@@ -200,7 +197,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Gamer",
     stock: 20,
-    imagenUrl: img("Audifonos Gamer"),
+    imagenUrl: "https://images.pexels.com/photos/32297869/pexels-photo-32297869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "HyperX",
     destacado: true,
   },
@@ -211,7 +208,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Deportivos",
     stock: 30,
-    imagenUrl: img("Audifonos Deportivos"),
+    imagenUrl: "https://images.pexels.com/photos/13813454/pexels-photo-13813454.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "JBL",
   },
   {
@@ -221,7 +218,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Inalámbricos",
     stock: 12,
-    imagenUrl: img("Audifonos Cancelacion Ruido"),
+    imagenUrl: "https://images.pexels.com/photos/33174697/pexels-photo-33174697.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Sony",
     destacado: true,
   },
@@ -232,7 +229,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Inalámbricos",
     stock: 38,
-    imagenUrl: img("Audifonos TWS Mini"),
+    imagenUrl: "https://images.pexels.com/photos/17810093/pexels-photo-17810093.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Xiaomi",
   },
   {
@@ -242,7 +239,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Deportivos",
     stock: 27,
-    imagenUrl: img("Audifonos Correr"),
+    imagenUrl: "https://images.pexels.com/photos/32769441/pexels-photo-32769441.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Xiaomi",
   },
   {
@@ -252,7 +249,7 @@ const productos = [
     categoria: "Audífonos",
     subcategoria: "Inalámbricos",
     stock: 19,
-    imagenUrl: img("Diadema Bluetooth"),
+    imagenUrl: "https://images.pexels.com/photos/28739256/pexels-photo-28739256.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "JBL",
   },
 
@@ -264,7 +261,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Hombre",
     stock: 30,
-    imagenUrl: img("Zapatillas Urbanas Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/14188893/pexels-photo-14188893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Nike",
     destacado: true,
   },
@@ -275,7 +272,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Mujer",
     stock: 26,
-    imagenUrl: img("Zapatillas Running Mujer"),
+    imagenUrl: "https://images.pexels.com/photos/5634121/pexels-photo-5634121.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Adidas",
     destacado: true,
   },
@@ -286,7 +283,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Mujer",
     stock: 18,
-    imagenUrl: img("Botines Mujer"),
+    imagenUrl: "https://images.pexels.com/photos/27381293/pexels-photo-27381293.png?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Zara",
   },
   {
@@ -296,7 +293,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Hombre",
     stock: 20,
-    imagenUrl: img("Zapatos Formales Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/292998/pexels-photo-292998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Aldo",
   },
   {
@@ -306,7 +303,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Mujer",
     stock: 34,
-    imagenUrl: img("Sandalias Mujer"),
+    imagenUrl: "https://images.pexels.com/photos/27046150/pexels-photo-27046150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "H&M",
   },
   {
@@ -316,7 +313,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Niños",
     stock: 28,
-    imagenUrl: img("Zapatillas Ninos"),
+    imagenUrl: "https://images.pexels.com/photos/5278784/pexels-photo-5278784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Adidas Kids",
   },
   {
@@ -326,7 +323,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Hombre",
     stock: 14,
-    imagenUrl: img("Botas Cuero Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/30156677/pexels-photo-30156677.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Aldo",
   },
   {
@@ -336,7 +333,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Unisex",
     stock: 22,
-    imagenUrl: img("Zapatillas Skate"),
+    imagenUrl: "https://images.pexels.com/photos/8733916/pexels-photo-8733916.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Vans",
   },
   {
@@ -346,7 +343,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Hombre",
     stock: 19,
-    imagenUrl: img("Mocasines Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/31935098/pexels-photo-31935098.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Aldo",
   },
   {
@@ -356,7 +353,7 @@ const productos = [
     categoria: "Calzado",
     subcategoria: "Hombre",
     stock: 25,
-    imagenUrl: img("Sandalias Deportivas Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/9742012/pexels-photo-9742012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Nike",
   },
 
@@ -368,7 +365,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Mochilas",
     stock: 24,
-    imagenUrl: img("Mochila Urbana"),
+    imagenUrl: "https://images.pexels.com/photos/37679583/pexels-photo-37679583.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Totto",
     destacado: true,
   },
@@ -379,7 +376,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Relojes",
     stock: 20,
-    imagenUrl: img("Reloj Analogico"),
+    imagenUrl: "https://images.pexels.com/photos/33524465/pexels-photo-33524465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Casio",
     destacado: true,
   },
@@ -390,7 +387,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Lentes",
     stock: 30,
-    imagenUrl: img("Lentes de Sol"),
+    imagenUrl: "https://images.pexels.com/photos/29274468/pexels-photo-29274468.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Ray-Ban",
   },
   {
@@ -400,7 +397,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Gorras",
     stock: 40,
-    imagenUrl: img("Gorra Snapback"),
+    imagenUrl: "https://images.pexels.com/photos/31162881/pexels-photo-31162881.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "New Era",
   },
   {
@@ -410,7 +407,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Billeteras",
     stock: 35,
-    imagenUrl: img("Billetera Hombre"),
+    imagenUrl: "https://images.pexels.com/photos/4452509/pexels-photo-4452509.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Aldo",
   },
   {
@@ -420,7 +417,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Cinturones",
     stock: 32,
-    imagenUrl: img("Cinturon Reversible"),
+    imagenUrl: "https://images.pexels.com/photos/33879839/pexels-photo-33879839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Levi's",
   },
   {
@@ -430,7 +427,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Mochilas",
     stock: 21,
-    imagenUrl: img("Mochila Laptop"),
+    imagenUrl: "https://images.pexels.com/photos/15059375/pexels-photo-15059375.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Totto",
   },
   {
@@ -440,7 +437,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Relojes",
     stock: 27,
-    imagenUrl: img("Reloj Deportivo"),
+    imagenUrl: "https://images.pexels.com/photos/18662969/pexels-photo-18662969.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Casio",
   },
   {
@@ -450,7 +447,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Bufandas",
     stock: 30,
-    imagenUrl: img("Bufanda de Lana"),
+    imagenUrl: "https://images.pexels.com/photos/19346997/pexels-photo-19346997.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "H&M",
   },
   {
@@ -460,7 +457,7 @@ const productos = [
     categoria: "Accesorios",
     subcategoria: "Mochilas",
     stock: 26,
-    imagenUrl: img("Rinonera Urbana"),
+    imagenUrl: "https://images.pexels.com/photos/9552167/pexels-photo-9552167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Totto",
   },
 
@@ -472,7 +469,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 18,
-    imagenUrl: img("Licuadora 600W"),
+    imagenUrl: "https://images.pexels.com/photos/3094227/pexels-photo-3094227.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Oster",
     destacado: true,
   },
@@ -483,7 +480,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 24,
-    imagenUrl: img("Sanguichera Electrica"),
+    imagenUrl: "https://images.pexels.com/photos/25946547/pexels-photo-25946547.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Oster",
   },
   {
@@ -493,7 +490,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Limpieza",
     stock: 20,
-    imagenUrl: img("Plancha a Vapor"),
+    imagenUrl: "https://images.pexels.com/photos/10558188/pexels-photo-10558188.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Philips",
     destacado: true,
   },
@@ -504,7 +501,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 22,
-    imagenUrl: img("Hervidor Electrico"),
+    imagenUrl: "https://images.pexels.com/photos/8879615/pexels-photo-8879615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Oster",
   },
   {
@@ -514,7 +511,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 15,
-    imagenUrl: img("Cafetera de Goteo"),
+    imagenUrl: "https://images.pexels.com/photos/69975/pexels-photo-69975.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Philips",
   },
   {
@@ -524,7 +521,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Limpieza",
     stock: 16,
-    imagenUrl: img("Aspiradora Inalambrica"),
+    imagenUrl: "https://images.pexels.com/photos/7641549/pexels-photo-7641549.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Black+Decker",
   },
   {
@@ -534,7 +531,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Climatización",
     stock: 12,
-    imagenUrl: img("Ventilador de Torre"),
+    imagenUrl: "https://images.pexels.com/photos/18026268/pexels-photo-18026268.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Black+Decker",
   },
   {
@@ -544,7 +541,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 26,
-    imagenUrl: img("Tostadora 2 Rebanadas"),
+    imagenUrl: "https://images.pexels.com/photos/3997309/pexels-photo-3997309.png?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Oster",
   },
   {
@@ -554,7 +551,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Cocina",
     stock: 23,
-    imagenUrl: img("Batidora de Mano"),
+    imagenUrl: "https://images.pexels.com/photos/8477739/pexels-photo-8477739.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Philips",
   },
   {
@@ -564,7 +561,7 @@ const productos = [
     categoria: "Hogar",
     subcategoria: "Climatización",
     stock: 10,
-    imagenUrl: img("Purificador de Aire"),
+    imagenUrl: "https://images.pexels.com/photos/31726758/pexels-photo-31726758.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     marca: "Xiaomi",
   },
 ];
