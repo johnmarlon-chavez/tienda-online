@@ -1,5 +1,6 @@
 import { randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
 const COOKIE_NAME = "andes_sesion";
@@ -39,6 +40,20 @@ export async function obtenerUsuarioActual() {
   }
 
   return sesion.usuario;
+}
+
+// Se usa al inicio de cada página y Server Action de /admin: las Server
+// Actions son un punto de entrada aparte del layout, así que necesitan su
+// propio chequeo (un layout que solo "esconda" contenido no las protege).
+export async function requireAdmin() {
+  const usuario = await obtenerUsuarioActual();
+  if (!usuario) {
+    redirect("/login");
+  }
+  if (usuario.rol !== "admin") {
+    redirect("/acceso-denegado");
+  }
+  return usuario;
 }
 
 export async function cerrarSesion() {

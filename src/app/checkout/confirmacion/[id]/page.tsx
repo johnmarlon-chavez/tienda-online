@@ -20,10 +20,11 @@ export default async function ConfirmacionPedidoPage({
 
   const pedido = await prisma.pedido.findUnique({
     where: { id: pedidoId },
-    include: { items: { include: { producto: true } } },
+    include: { items: { include: { producto: true } }, usuario: true },
   });
 
-  if (!pedido || pedido.usuarioId !== usuario.id) {
+  const esDueño = pedido?.usuarioId === usuario.id;
+  if (!pedido || (!esDueño && usuario.rol !== "admin")) {
     notFound();
   }
 
@@ -37,6 +38,11 @@ export default async function ConfirmacionPedidoPage({
           ¡Pedido confirmado!
         </h1>
         <p className="mt-2 text-zinc-500">Número de orden: #{pedido.id}</p>
+        {!esDueño && (
+          <p className="mt-1 text-sm text-zinc-500">
+            Pedido de: {pedido.usuario.email}
+          </p>
+        )}
       </div>
 
       <div className="mt-8 rounded-xl border border-zinc-200 bg-white p-6">
