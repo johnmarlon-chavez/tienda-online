@@ -22,6 +22,11 @@ export default async function Header() {
 
           {usuario ? (
             <div className="flex items-center gap-4">
+              {usuario.rol === "admin" && (
+                <Link href="/admin" className="transition-colors hover:text-zinc-900">
+                  Panel Admin
+                </Link>
+              )}
               <Link
                 href="/perfil"
                 className="flex items-center gap-2 transition-colors hover:text-zinc-900"
