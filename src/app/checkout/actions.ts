@@ -14,6 +14,9 @@ export async function crearPedido(
   if (!usuario) {
     return { error: "Debes iniciar sesión para completar la compra." };
   }
+  if (!usuario.emailVerificado) {
+    return { error: "Verifica tu correo electrónico antes de completar una compra." };
+  }
 
   const direccion = datos.direccion.trim();
   if (!direccion) {
