@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import ChatWidget from "@/components/ChatWidget";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { CartProvider } from "@/context/CartContext";
+import { obtenerUsuarioActual } from "@/lib/session";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,7 +23,9 @@ export const metadata: Metadata = {
     "Catálogo de ropa, calzado, audífonos, accesorios y hogar. Proyecto de portfolio inspirado en Falabella.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const usuario = await obtenerUsuarioActual();
+
   return (
     <html
       lang="es"
@@ -32,6 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           {children}
           <Footer />
+          {/* key fuerza a React a remontar el widget (reiniciando todo su
+              estado interno) cada vez que cambia quién está logueado —
+              login, logout, o cambio de cuenta en el mismo navegador. */}
+          <ChatWidget key={usuario?.id ?? "anon"} usuarioId={usuario?.id ?? null} />
         </CartProvider>
       </body>
     </html>
