@@ -2,7 +2,7 @@
 
 Tienda online de ropa, calzado, audífonos, accesorios y hogar — un e-commerce de una sola marca inspirado en Falabella, construido como proyecto de portfolio full-stack con Next.js.
 
-🔗 Demo en vivo: [próximamente]
+🔗 Demo en vivo: [tienda-andes-marlon.vercel.app](https://tienda-andes-marlon.vercel.app)
 
 ## Features
 
