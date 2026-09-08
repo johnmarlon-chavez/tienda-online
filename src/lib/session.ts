@@ -1,6 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 
 const COOKIE_NAME = "andes_sesion";
@@ -22,7 +23,9 @@ export async function crearSesion(usuarioId: number) {
   });
 }
 
-export async function obtenerUsuarioActual() {
+// cache(): varios puntos del árbol (layout, Header, páginas) llaman a esto
+// en el mismo request — se deduplica a una sola consulta por render.
+export const obtenerUsuarioActual = cache(async () => {
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE_NAME)?.value;
   if (!token) return null;
@@ -40,7 +43,7 @@ export async function obtenerUsuarioActual() {
   }
 
   return sesion.usuario;
-}
+});
 
 // Se usa al inicio de cada página y Server Action de /admin: las Server
 // Actions son un punto de entrada aparte del layout, así que necesitan su
