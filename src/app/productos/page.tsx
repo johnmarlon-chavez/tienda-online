@@ -33,7 +33,7 @@ export default async function ProductosPage({
           href="/productos"
           className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
             !categoriaSeleccionada
-              ? "border-zinc-900 bg-zinc-900 text-white"
+              ? "border-accent bg-accent text-white"
               : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
           }`}
         >
@@ -45,7 +45,7 @@ export default async function ProductosPage({
             href={`/productos?categoria=${encodeURIComponent(c)}`}
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
               categoriaSeleccionada === c
-                ? "border-zinc-900 bg-zinc-900 text-white"
+                ? "border-accent bg-accent text-white"
                 : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
             }`}
           >

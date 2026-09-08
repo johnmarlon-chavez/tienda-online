@@ -3,4 +3,6 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
 }

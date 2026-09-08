@@ -91,7 +91,7 @@ export default async function ProductoDetallePage({
                 precio: producto.precio,
                 imagenUrl: producto.imagenUrl,
               }}
-              className="rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
             />
           </div>
 

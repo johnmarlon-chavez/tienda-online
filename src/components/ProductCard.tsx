@@ -6,7 +6,7 @@ import { formatearPrecio } from "@/lib/format";
 
 export default function ProductCard({ producto }: { producto: Producto }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-shadow hover:shadow-md">
+    <div className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <Link href={`/productos/${producto.id}`} className="flex flex-1 flex-col">
         <div className="relative aspect-square w-full overflow-hidden bg-zinc-100">
           <Image
@@ -39,7 +39,7 @@ export default function ProductCard({ producto }: { producto: Producto }) {
             precio: producto.precio,
             imagenUrl: producto.imagenUrl,
           }}
-          className="w-full rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:border-zinc-900"
+          className="w-full rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:border-accent hover:text-accent"
         />
       </div>
     </div>

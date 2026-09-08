@@ -1,3 +1,4 @@
+import { Mountain } from "lucide-react";
 import Link from "next/link";
 import CartIndicator from "@/components/CartIndicator";
 import { cerrarSesion, obtenerUsuarioActual } from "@/lib/session";
@@ -8,7 +9,11 @@ export default async function Header() {
   return (
     <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="text-xl font-bold tracking-tight text-zinc-900">
+        <Link
+          href="/"
+          className="flex items-center gap-1.5 text-xl font-bold tracking-tight text-zinc-900"
+        >
+          <Mountain className="h-6 w-6 text-accent" aria-hidden="true" />
           ANDES
         </Link>
         <nav className="flex items-center gap-6 text-sm font-medium text-zinc-600">
