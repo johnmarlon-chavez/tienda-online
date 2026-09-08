@@ -11,6 +11,10 @@ export default async function Home() {
     prisma.producto.findMany({
       where: { destacado: true },
       orderBy: { creadoEn: "desc" },
+      // 12 es múltiplo de 2, 3 y 4: el grid cierra parejo en los tres
+      // breakpoints (móvil/sm/lg) sin importar cuántos productos estén
+      // marcados como destacados en la base de datos.
+      take: 12,
     }),
     prisma.producto.findMany({
       distinct: ["categoria"],
