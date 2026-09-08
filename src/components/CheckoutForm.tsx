@@ -161,7 +161,7 @@ export default function CheckoutForm() {
           <button
             type="submit"
             disabled={enviando}
-            className="mt-2 rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700 disabled:opacity-50"
+            className="mt-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-hover disabled:opacity-50"
           >
             {enviando ? "Procesando..." : "Confirmar pedido"}
           </button>

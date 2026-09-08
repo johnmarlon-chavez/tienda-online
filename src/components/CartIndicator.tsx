@@ -27,7 +27,7 @@ export default function CartIndicator() {
         <circle cx="17" cy="21" r="1.2" fill="currentColor" stroke="none" />
       </svg>
       {totalItems > 0 && (
-        <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-zinc-900 px-1 text-[10px] font-semibold text-white">
+        <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-white">
           {totalItems > 99 ? "99+" : totalItems}
         </span>
       )}

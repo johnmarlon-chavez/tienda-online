@@ -31,7 +31,7 @@ export default function AddToCartButton({ producto, className }: Props) {
       onClick={handleClick}
       className={
         className ??
-        "w-full rounded-full bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
+        "w-full rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
       }
     >
       {agregado ? "Agregado ✓" : "Agregar al carrito"}
