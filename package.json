@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@google/genai": "^2.21.0",
@@ -19,6 +20,8 @@
     "resend": "^6.26.0"
   },
   "devDependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
