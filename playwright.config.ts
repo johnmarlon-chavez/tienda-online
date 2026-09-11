@@ -18,7 +18,9 @@ export default defineConfig({
     command: "npm run dev",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
+    // Más generoso que en local: en CI el primer compilado de Turbopack
+    // corre en hardware compartido, más lento que una máquina de desarrollo.
+    timeout: 120_000,
   },
 
   globalSetup: "./e2e/global-setup.ts",
