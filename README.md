@@ -4,6 +4,8 @@ Tienda online de ropa, calzado, audífonos, accesorios y hogar — un e-commerce
 
 🔗 Demo en vivo: [tienda-andes-marlon.vercel.app](https://tienda-andes-marlon.vercel.app)
 
+[![E2E Tests](https://github.com/johnmarlon-chavez/tienda-online/actions/workflows/e2e.yml/badge.svg)](https://github.com/johnmarlon-chavez/tienda-online/actions/workflows/e2e.yml)
+
 ## Features
 
 - **Catálogo de productos** con filtro por categoría, página de detalle y productos destacados en el inicio.
@@ -51,6 +53,7 @@ Y completa:
 | `DATABASE_URL` | Sí | Cadena de conexión a una base de datos PostgreSQL (por ejemplo, una gratis en [Neon](https://neon.tech)). |
 | `RESEND_API_KEY` | Sí | API key de [Resend](https://resend.com), para enviar el correo de verificación al registrarse. |
 | `PEXELS_API_KEY` | No | API key de [Pexels](https://www.pexels.com/api/). Solo hace falta si vas a correr `scripts/actualizar-imagenes-pexels.ts`; el seed ya incluye fotos precargadas. |
+| `GEMINI_API_KEY` | Sí | API key de [Gemini](https://ai.google.dev/), para el chatbot de atención al cliente. |
 | `RESEND_FROM_EMAIL` | No | Remitente propio una vez verifiques un dominio en Resend. Por defecto usa `ANDES <onboarding@resend.dev>`. |
 | `APP_URL` | No | Dominio público de la app, para que el link del correo de verificación apunte al lugar correcto en producción. Por defecto `http://localhost:3000`. |
 
@@ -78,6 +81,16 @@ Todavía no hay una forma de crear un admin desde la interfaz. Después de regis
 ```bash
 npx tsx scripts/hacer-admin.ts tu-correo@ejemplo.com
 ```
+
+## Tests
+
+Suite E2E con [Playwright](https://playwright.dev) cubriendo los flujos críticos: compra completa, seguridad del panel admin, y registro/login.
+
+```bash
+npx playwright test
+```
+
+Corre automáticamente en cada push a `main` y en cada pull request vía GitHub Actions (ver el badge arriba). Los datos que generan los tests usan correos `@playwright.test` (dominio reservado, nunca real) y se limpian solos antes y después de cada corrida — no ensucian la base de datos de producción.
 
 ## Limitación conocida: verificación de correo
 
